@@ -1,4 +1,4 @@
-# odooPrestamos - Desarrollo de Software Empresarial
+# OdooPrestamos - Desarrollo de Software Empresarial
 
 ## 1. Integrantes
 
