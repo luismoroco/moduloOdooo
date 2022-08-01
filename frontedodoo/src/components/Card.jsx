@@ -1,4 +1,4 @@
-import { AcademicCapIcon, SearchIcon, FingerPrintIcon, CurrencyDollarIcon } from "@heroicons/react/outline";
+import { FingerPrintIcon, CurrencyDollarIcon } from "@heroicons/react/outline";
 
 export default function Card() {
   return (
@@ -10,14 +10,14 @@ export default function Card() {
           <a href="#" class="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
             <FingerPrintIcon className="mr-3 w-7 h-7"></FingerPrintIcon>
             <div class="text-left">
-              <div class="mb-1 text-xs"> Solicitar ahora un  </div>
+              <div class="mb-1 text-xs"> El módulo puede  </div>
               <div class="-mt-1 font-sans text-lg font-semibold"> Solicitar </div>
             </div>
           </a>
           <a href="#" class="w-full sm:w-auto bg-gray-800 hover:bg-gray-700 focus:ring-4 focus:outline-none focus:ring-gray-300 text-white rounded-lg inline-flex items-center justify-center px-4 py-2.5 dark:bg-gray-700 dark:hover:bg-gray-600 dark:focus:ring-gray-700">
             <CurrencyDollarIcon className="mr-3 w-7 h-7"></CurrencyDollarIcon>
             <div class="text-left">
-              <div class="mb-1 text-xs"> Brindar ahora un</div>
+              <div class="mb-1 text-xs"> El módulo puede </div>
               <div class="-mt-1 font-sans text-lg font-semibold"> Ofrecer </div>
             </div>
           </a>

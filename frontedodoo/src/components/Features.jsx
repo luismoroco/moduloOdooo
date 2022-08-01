@@ -4,25 +4,25 @@ const features = [
   {
     name: 'Cronogramas',
     description:
-      'Generamos los cronogramas para facilitarlle al usuario y así este cumpla con sus plazos.',
+      'Generamos los cronogramas para facilitarle al usuario recordar las fechas de pago y mantenerse al día con el cronograma. También facilitará el monitoreo al administrador.',
     icon: ClockIcon,
   },
   {
     name: 'Contratos',
     description:
-      'Los contratos son idispensables para la empresa por ello brindamos un modelo a sus necesidades.',
+      'Los contratos son idispensables para la empresa, por ello brindamos un modelo acorde a las necesidades de los tipos de clientes. Estos varían en cuanto a la cantidad de riquisitos en la solicitud.',
     icon: ScaleIcon,
   },
   {
     name: 'Solicitudes',
     description:
-      'Emite solicitudes por oficina para ser aprobados por la gerencia general.',
+      'Emite solicitudes por oficina para ser aprobados por la gerencia general. Podrán ser evaluados por los administradores para tomar mejores decisiones.',
     icon: PencilAltIcon,
   },
   {
     name: 'Interfaz',
     description:
-      'Una interfaz amigable para poder registrar los prestamos que ofreces a tus clientes.',
+      'Una interfaz amigable, moderna y simple para poder registrar los prestamos que ofreces a tus clientes, así como a la hora de generar un reporte.',
     icon: HeartIcon,
   },
 ]
