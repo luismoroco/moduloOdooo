@@ -1,8 +1,8 @@
-# odooPrestamos - Desarrollo de software Empresarial
+# odooPrestamos - Desarrollo de Software Empresarial
 
 ## 1. Integrantes
 
-- Moroco Ramos, Luis Angel
-- Valdivia Quispe, Eduardo Felipe 
 - Moscoso Apaza, Imanol Bryan
 - Valencia Arana, Gabriel Adriano
+- Moroco Ramos, Luis Angel
+- Valdivia Quispe, Eduardo Felipe 
