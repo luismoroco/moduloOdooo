@@ -1,6 +1,4 @@
 import Form from "../components/FormCliente";
-import NavBar from "../components/Navbar";
-import TitleDAsh from "../components/TitleDash";
 import DashNameOnly from "../components/DashOnly";
 
 export default function ClientesPage() {

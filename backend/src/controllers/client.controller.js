@@ -16,3 +16,12 @@ export const addCliente = async (req, res) => {
     error505(res, 'in addCliente');
   }
 }
+
+export const getClientes = async (req, res) => {
+  try {
+    const data = await Cliente.findAll();
+    res.status(200).json(data);
+  } catch (err) {
+    error505(res, 'in getClientes');
+  }
+}
