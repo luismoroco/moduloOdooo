@@ -18,7 +18,7 @@ function generateQuotesAndBouchers(pres, seg, body) {
   const { monto, meses, interes } = body;
 
   const deuda = getDeuda(Number(monto), Number(interes), Number(seg));
-  const pago_mensual = getQuote(Number(deuda), Number(meses));
+  var pago_mensual = getQuote(Number(deuda), Number(meses));
   const final = getLastQuote(Number(deuda), Number(pago_mensual), Number(meses));
   var capital = deuda;
 
@@ -26,7 +26,7 @@ function generateQuotesAndBouchers(pres, seg, body) {
   for (let num_cuota = 1; num_cuota <= meses; ++num_cuota) {
     let fechapago = new Date();
     fechapago.setMonth(fechapago.getMonth()+num_cuota);
-
+    if (num_cuota === meses) { capital = 0; pago_mensual = final;}
     const newBody = {idPres, num_cuota, fechapago, pago_mensual, capital };
     data.push(newBody);
     capital -= pago_mensual;
@@ -42,14 +42,9 @@ export const addPrestamo = async (req, res) => {
   try {
     const v = await Asegu.findByPk(body.idAseg);
     const seg = v?.get('monto');
-
-    console.log(seg);
-
     var fecha_prestamo = getDateOnly();
+
     const newBody = {...body, fecha_prestamo} 
-
-    console.log('NEW BOOODY ', newBody);
-
     const x = new Prestamo(newBody);
     await x.save().then(() => generateQuotesAndBouchers(x, seg, newBody));
     res.json({msg: 'Prestamo creado'})
