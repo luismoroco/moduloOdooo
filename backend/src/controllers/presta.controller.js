@@ -52,3 +52,43 @@ export const addPrestamo = async (req, res) => {
     error505(res, 'in addPrestamo');
   }
 }
+
+export const getPrestamos = async (req, res) => {
+  try {
+    const x = await Prestamo.findAll();
+    res.json(x);
+  } catch (err) {
+    error505(res, 'in getPrestamos');
+  }
+}
+
+export const detailPrestamoById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const exist = await Prestamo.findByPk(id);
+    if (exist) {
+      const items = await Detalles.findAll({
+        where: {idPres: id}, 
+        order: [['num_cuota', 'ASC']]
+      });
+      res.json(items)
+    } else {
+      res.json({msg: 'No existe'});
+    }
+  } catch (err) {
+    error505(res, 'in detailById');
+  }
+}
+
+export const payQuoteById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const item = await Detalles.findByPk(id);
+    if (item) {
+      await item.destroy().then(() => {res.json({msg: 'quota borrada!'})});
+    } else 
+      res.json({msg: 'No existe la quota'});
+  } catch (err) {
+    error505(res, 'in payQuote')
+  }
+}
