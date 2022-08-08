@@ -2,7 +2,7 @@ import TitleDAsh from "./TitleDash";
 
 export default function Footer() {
   return (
-    <footer class="p-4 bg-white shadow md:px-9 md:py-8 dark:bg-cyan-900">
+    <footer class="p-4 bg-white shadow md:px-9 md:py-8 rounded-md dark:bg-cyan-900">
       <div class="sm:flex sm:items-center sm:justify-around">
         <TitleDAsh name={'odooPrestamos'}/>
         <ul class="flex flex-wrap items-center mb-6 text-sm text-gray-500 sm:mb-0 dark:text-white">

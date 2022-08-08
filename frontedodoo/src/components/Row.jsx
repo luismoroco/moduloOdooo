@@ -1,9 +1,21 @@
 import React from "react";
-import axios from "axios";
-import { TrashIcon } from "@heroicons/react/outline";
+import { useHistory } from "react-router-dom";
 
 export default function Row(props) {
   const { id, name, ape, dire, doc, contac, correo } = props;
+
+  let history = useHistory();
+
+  const Prestamo = (ident, name) => {
+    history.push({
+      pathname: '/addPrestamo',
+      state: {
+        id: ident,
+        name: name
+      }
+    });
+    window.location.reload();
+  }
 
   const Delete = async (e) => {
     //axios.delete(`http://localhost:5001/re/${e}`).then(() => alert(`Proyecto ${e} eliminado`));
@@ -20,11 +32,7 @@ export default function Row(props) {
       <td class="py-4 px-6"> {contac} </td>
       <td class="py-4 px-6"> {correo} </td>
       <td class="py-4 px-6">
-        <button class="font-medium text-blue-600 dark:text-green-500 hover:underline" onClick={() => { Delete(id) }} > Prestar </button>
-        {'   '}
-        <button class="font-medium text-blue-600 dark:text-red-500 hover:underline" onClick={() => { Delete(id) }} > Eliminar </button>
-        {'   '}
-        <button class="font-medium text-blue-600 dark:text-yellow-500 hover:underline" onClick={() => { Delete(id) }} > Editar </button>
+        <button class="font-medium text-blue-600 dark:text-green-500 hover:underline" onClick={() => { Prestamo(id, name) }} > Prestar </button>
       </td>
     </tr>
   );

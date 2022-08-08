@@ -1,12 +1,21 @@
 import React from "react";
-import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 export default function RowPres(props) {
-  const { id, fecha, monto, meses, abal, penal, inter } = props;
+  const { id, idClien, fecha, monto, meses, abal, penal, inter } = props;
 
-  const Delete = async (e) => {
-    //axios.delete(`http://localhost:5001/re/${e}`).then(() => alert(`Proyecto ${e} eliminado`));
-  }
+  let history = useHistory();
+
+  const VerDetalles = (id, idC) => {
+    history.push({
+      pathname: '/detailsprestamo',
+      state: {
+        idPres: id,
+        idClien: idC
+      }
+    });
+    window.location.reload();
+  } 
 
   return (
     <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
@@ -18,8 +27,8 @@ export default function RowPres(props) {
     <td class="py-4 px-6"> {abal} </td>
     <td class="py-4 px-6"> {penal} </td>
     <td class="py-4 px-6"> {inter} </td>
-    <td class="py-4 px-6 text-right">
-      <button class="font-medium text-blue-600 dark:text-sky-100 hover:underline" onClick = {() => {Delete(id)}} > Detalles </button>
+    <td class="py-4 px-6">
+      <button class="font-medium text-blue-600 dark:text-yellow-500 hover:underline" onClick = {() => {VerDetalles(id, idClien)}} > Detalles </button>
     </td>
   </tr>
   );

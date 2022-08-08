@@ -2,7 +2,8 @@ import ItemNav from './ItemNav';
 
 const navigation = [
   { name: 'Prestamos', href: '/lispres'},
-  { name: 'Clientes', href: '/pres' }
+  { name: 'Clientes', href: '/pres' },
+  { name: 'Inicio', href: '/'}
 ]
 
 export default function BoxDash() {
