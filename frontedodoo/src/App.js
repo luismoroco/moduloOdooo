@@ -6,6 +6,7 @@ import ClientesPage from "./pages/clientes";
 import PrestamosPage from "./pages/lisprestamos.page";
 import PrestarDineroCliente from "./pages/pag.prestar.cliente";
 import DetailPrestamo from './pages/details.prestamo';
+import Solicitud from './pages/Solicitud.jsx';
 
 function App() {
   return (
@@ -35,6 +36,9 @@ function App() {
           <DetailPrestamo/>
         </Route>
 
+        <Route path = {'/solicitud'}>
+          <Solicitud/>
+        </Route>
       </Switch>
     </BrowserRouter>
   );
