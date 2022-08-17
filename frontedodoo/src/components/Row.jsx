@@ -1,10 +1,11 @@
 import React from "react";
-import { useHistory } from "react-router-dom";
+import { Link, NavLink, Route, useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 export default function Row({data}) {
   const { id, name, phone, email, street } = data;
 
-  let history = useHistory();
+  const history = useHistory();
 
   const Prestamo = (ident, name) => {
     history.push({
@@ -13,7 +14,7 @@ export default function Row({data}) {
         id: ident,
         name: name
       }
-    });
+    })
     window.location.reload();
   }
 

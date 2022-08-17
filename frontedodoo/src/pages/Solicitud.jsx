@@ -177,7 +177,7 @@ class Solicitud extends Component {
               <button type="submit" className="
                 px-6
                 py-2.5
-                bg-purple-500
+                bg-cyan-800
                 text-white
                 font-medium
                 text-xs
@@ -195,7 +195,7 @@ class Solicitud extends Component {
                 <button type="submit" className="
                 px-6
                 py-2.5
-                bg-purple-700
+                bg-cyan-800
                 text-white
                 font-medium
                 text-xs

@@ -20,6 +20,10 @@ function App() {
           <Prestar/>
         </Route>
 
+        <Route path = {'/addPrestamo'}>
+          <PrestarDineroCliente />
+        </Route>
+
         <Route path = {'/lispres'}>
           <PrestamosPage/>
         </Route>
@@ -28,9 +32,7 @@ function App() {
           <ClientesPage/>
         </Route>
 
-        <Route path = {'/addPrestamo'}>
-          <PrestarDineroCliente />
-        </Route>
+
 
         <Route path = {'/detailsprestamo'}>
           <DetailPrestamo/>

@@ -40,17 +40,14 @@ export default function DetailPrestamo() {
       console.log(data);
     }
     fetch();
-  }, [vecdet]);
+  }, []);
 
   return (
     <>
       <DashNameOnly />
       <main>
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 space-y-1">
-          <Subtitle content={'Préstamo de: '} />
-          <Tittle name={'User'} />
-          <Subtitle content={'Teléfono: '} />
-          <Tittle name={'+51'} />
+          <Tittle name={'Detalles del Préstamo'} />
           <br />
           <br />
           
