@@ -15,9 +15,6 @@ const asegu = [
 ];
 
 export default function PrestarDineroCliente() {
-  const [idCliente, setId] = useState(1);
-  const [name, setName] = useState('');
-
   const [idAseg, setAseg] = useState(1);
   const [monto, setMonto] = useState(1600);
   const [meses, setMeses] = useState(12);
@@ -39,15 +36,12 @@ export default function PrestarDineroCliente() {
   const location = useLocation();
   const history = useHistory();
 
-  const getDataUserL = () => {
-    setId(location.state.id);
-    setName(location.state.name);
-  }
+  const idCliente = location.state.id;
+  const name = location.state.name;
 
   console.log('LOCATION! -> ', idCliente, name);
 
   const GuardarPrestamo = async (e) => {
-    getDataUserL();
     try {
       await axios.post('http://localhost:4001/pres', {
         idAseg, idCliente, monto, meses, abal, penalidad, interes

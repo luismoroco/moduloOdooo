@@ -7,12 +7,12 @@ export default function RowPres(props) {
 
   let history = useHistory();
 
-  const VerDetalles = (id, idC) => {
+  const VerDetalles = (x, y) => {
     history.push({
       pathname: '/detailsprestamo',
       state: {
-        idPres: id,
-        idClien: idC
+        id_p: x,
+        id_c: y
       }
     });
     window.location.reload();

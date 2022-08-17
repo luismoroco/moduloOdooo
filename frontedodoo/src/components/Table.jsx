@@ -16,9 +16,7 @@ export default function Table() {
 
   useEffect(() =>{
     const fetch = async () => {
-      await axios.get('http://127.0.0.1:8000/data').then((e) => setodooC(e.data));
-      console.log(odooC);
-    }
+      await axios.get('http://127.0.0.1:8000/data').then((e) => setodooC(e.data));    }
     fetch();
   }, []);
 

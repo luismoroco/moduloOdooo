@@ -6,29 +6,40 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 
 export default function DetailPrestamo() {
-  const [data, setData] = useState([]);
-  const [name, setName] = useState('');
-  const [idPres, setIdPres] = useState('');
-  const [id, setIdClien] = useState('');
+  const [odooC, setodooC] = useState([]);
+  const [vecdet, setvecdet] = useState([]);
 
   const location = useLocation();
-  setIdPres(location.state.idPres);
-  setIdClien(location.state.idClien);
-  
+  const id = location.state.id_p;
+  const idC = location.state.id_c;
+
+  console.log('PRES_ID, USER_ID', id, idC);
+
   useEffect(() => {
-  }, [location]);
+    const fetch = async () => {
+      await axios.get('http://127.0.0.1:8000/data').then((e) => setodooC(e.data));
+      console.log(odooC);
+    }
+    fetch();
+  }, []);
 
-  const getDataCliente = async () => {
-
-  }
+  useEffect(() => {
+    const fetch = async () => {
+      const data = await axios.get(`http://localhost:4001/pres/${id}`);
+      console.log(data);
+    }
+    fetch();
+  }, []);
 
   return (
     <>
       <DashNameOnly />
       <main>
-        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8 space-y-1">
           <Subtitle content={'Préstamo de: '} />
-          <Tittle name={'Usuario'} />
+          <Tittle name={'User'} />
+          <Subtitle content={'Teléfono: '} />
+          <Tittle name={'+51'} />
           <br />
           <br />
         </div>
