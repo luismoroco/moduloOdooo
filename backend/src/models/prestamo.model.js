@@ -27,9 +27,6 @@ export const Prestamo = ORM.define('Prestamo', {
   },
   penalidad: {
     type: DataTypes.FLOAT
-  },
-  interes: {
-    type: DataTypes.FLOAT
   }
 }, {
   freezeTableName: true,

@@ -4,25 +4,21 @@ import { ORM } from '../db/db.config.js';
 export const Cliente = ORM.define('Cliente', {
   id: {
     type: DataTypes.INTEGER,
-    primaryKey: true,
-    autoIncrement: true
+    primaryKey: true  
   },
   name: {
     type: DataTypes.STRING
   },
-  apellidos: {
+  phone: {
     type: DataTypes.STRING
   },
-  direccion: {
+  street: {
     type: DataTypes.STRING
   },
-  doc_identifi:{
+  email:{
     type: DataTypes.STRING
   },
-  contacto: {
-    type: DataTypes.STRING
-  },
-  correo: {
+  pass: {
     type: DataTypes.STRING
   }
 }, {

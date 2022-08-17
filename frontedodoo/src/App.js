@@ -6,6 +6,7 @@ import ClientesPage from "./pages/clientes";
 import PrestamosPage from "./pages/lisprestamos.page";
 import PrestarDineroCliente from "./pages/pag.prestar.cliente";
 import DetailPrestamo from './pages/details.prestamo';
+import Test from "./pages/Test";
 
 function App() {
   return (
@@ -34,6 +35,11 @@ function App() {
         <Route path = {'/detailsprestamo'}>
           <DetailPrestamo/>
         </Route>
+
+        <Route path={'/test'}>
+          <Test />
+        </Route>  
+
       </Switch>
     </BrowserRouter>
   );

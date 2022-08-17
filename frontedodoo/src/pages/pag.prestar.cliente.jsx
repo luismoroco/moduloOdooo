@@ -9,8 +9,13 @@ import axios from 'axios';
 const divclas = "relative z-0 mb-7 w-full group";
 const int = "block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-gray-700 dark:border-gray-600 dark:focus:border-cyan-700 focus:outline-none focus:ring-0 focus:border-cyan-800 peer";
 
+const asegu = [
+  {id: 1, name: 'Aseguradora 1'},
+  {id: 2, name: 'Aseguradora 2'}
+];
+
 export default function PrestarDineroCliente() {
-  const [idCliente, setId] = useState('');
+  const [idCliente, setId] = useState(1);
   const [name, setName] = useState('');
 
   const [idAseg, setAseg] = useState(1);
@@ -20,8 +25,8 @@ export default function PrestarDineroCliente() {
   const [penalidad, setPen] = useState(120);
   const [interes, setIntere] = useState(46);
 
-  let deudaTotal = monto * (1 + interes/100) + 100;
-  let pagomensual = deudaTotal/meses;
+  let deudaTotal = monto * (1 + interes / 100) + 100;
+  let pagomensual = deudaTotal / meses;
 
   var date = new Date();
   date.setMonth(date.getMonth() + 1);
@@ -34,13 +39,15 @@ export default function PrestarDineroCliente() {
   const location = useLocation();
   const history = useHistory();
 
-  useEffect(() => {
+  const getDataUserL = () => {
     setId(location.state.id);
     setName(location.state.name);
-  }, [location]);
+  }
+
+  console.log('LOCATION! -> ', idCliente, name);
 
   const GuardarPrestamo = async (e) => {
-    e.preventDefault();
+    getDataUserL();
     try {
       await axios.post('http://localhost:4001/pres', {
         idAseg, idCliente, monto, meses, abal, penalidad, interes
@@ -62,7 +69,7 @@ export default function PrestarDineroCliente() {
           <Subtitle content={'Generando Prestamo para: '} />
           <Tittle name={name} />
 
-          <br/>
+          <br />
           <form onSubmit={GuardarPrestamo}>
             <div className={divclas}>
               <input
@@ -81,6 +88,7 @@ export default function PrestarDineroCliente() {
                 className={int} />
               <Label name={'Meses'} />
             </div>
+
             <div class="grid md:grid-cols-2 md:gap-6">
               <div className={divclas}>
                 <input
@@ -99,7 +107,11 @@ export default function PrestarDineroCliente() {
                 <Label name={'Penalidad Mensual'} />
               </div>
             </div>
+
             <div class="grid md:grid-cols-2 md:gap-6">
+
+
+
               <div className={divclas}>
                 <input
                   type={'number'}
@@ -108,15 +120,31 @@ export default function PrestarDineroCliente() {
                   className={int} />
                 <Label name={'Interés'} />
               </div>
+
+
+              <div className={divclas}>
+                <select
+                  className={int}
+                  value={idAseg} onChange={(e) => setAseg(e.target.value)}
+                >
+                  {asegu.map((e) => (
+                    <option value={e.id} > {e.name} </option>
+                  ))}
+                </select>
+                <Label name={'Aseguradora'} />
+              </div>
+
             </div>
-              <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-cyan-900 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-800 dark:hover:bg-cyan-900 dark:focus:ring-cyan-900"> Generar Préstamo </button>
+
+
+            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-cyan-900 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-800 dark:hover:bg-cyan-900 dark:focus:ring-cyan-900"> Generar Préstamo </button>
           </form>
 
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
 
           <div className='flex flex-row justify-around'>
             <div className='flex flex-col '>
@@ -130,10 +158,6 @@ export default function PrestarDineroCliente() {
             <div className='flex flex-col'>
               <Subtitle content={'Primera Cuota'} />
               <Tittle name={date} />
-            </div>
-            <div className='flex flex-col'>
-              <Subtitle content={'Última cuota'} />
-              <Tittle name={dateEnd} />
             </div>
           </div>
         </div>

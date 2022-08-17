@@ -12,26 +12,25 @@ export default function DetailPrestamo() {
   const [id, setIdClien] = useState('');
 
   const location = useLocation();
-    setIdPres(location.state.idPres);
-    setIdClien(location.state.idClien);
+  setIdPres(location.state.idPres);
+  setIdClien(location.state.idClien);
+  
   useEffect(() => {
   }, [location]);
 
   const getDataCliente = async () => {
-    
+
   }
 
   return (
     <>
-      <DashNameOnly/>
+      <DashNameOnly />
       <main>
         <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
           <Subtitle content={'Préstamo de: '} />
           <Tittle name={'Usuario'} />
-          <br/>
-          <br/>
-
-
+          <br />
+          <br />
         </div>
       </main>
     </>

@@ -1,0 +1,4 @@
+MASTER_PASSWORD=root
+DB_NAME=odoo_db
+EMAIL=lmoroco@gmail.com
+PASSWORD=root
