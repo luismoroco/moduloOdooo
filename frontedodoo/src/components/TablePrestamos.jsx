@@ -22,7 +22,7 @@ export default function TablePrestamos() {
       setData(x.data);
     }
     fetch();
-  }, []);
+  }, [data]);
 
   console.log(data)
 

@@ -109,9 +109,6 @@ export default function PrestarDineroCliente() {
             </div>
 
             <div class="grid md:grid-cols-2 md:gap-6">
-
-
-
               <div className={divclas}>
                 <input
                   type={'number'}
@@ -120,7 +117,6 @@ export default function PrestarDineroCliente() {
                   className={int} />
                 <Label name={'Interés'} />
               </div>
-
 
               <div className={divclas}>
                 <select
@@ -135,7 +131,6 @@ export default function PrestarDineroCliente() {
               </div>
 
             </div>
-
 
             <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-cyan-900 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-cyan-800 dark:hover:bg-cyan-900 dark:focus:ring-cyan-900"> Generar Préstamo </button>
           </form>

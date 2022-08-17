@@ -92,3 +92,18 @@ export const payQuoteById = async (req, res) => {
     error505(res, 'in payQuote')
   }
 }
+
+export const deletePrestamoById = async (req, res) => {
+  const { id } = req.params;
+  try {
+    const exist = await Prestamo.findByPk(id);
+    if (exist) {
+      await exist.destroy();
+      res.status(200).json({msg: 'OK'});
+    } else {
+      res.status(300).json({msg: 'NO EXISTE'});
+    }
+  } catch (err) {
+    error505(res, 'in deletePresById')
+  }
+}
